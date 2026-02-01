@@ -88,26 +88,65 @@ noBtn.style.left = "120px";
 noBtn.style.top = "50px";
 
 function moveNo() {
-  const x = Math.random() * 200;
-  const y = Math.random() * 60;
+  const x = Math.random() * 230;
+  const y = Math.random() * 70;
   noBtn.style.left = x + "px";
   noBtn.style.top = y + "px";
+  noBtn.style.transform = `rotate(${Math.random()*30 - 15}deg)`;
 }
 
 noBtn.addEventListener("click", moveNo);
 noBtn.addEventListener("mouseover", moveNo);
+noBtn.addEventListener("touchstart", moveNo);
 
 yesBtn.addEventListener("click", () => {
   card.innerHTML = `
-    <h1>YAYYYYY 💍❤️</h1>
-    <p>You just made me the happiest person 🥹</p>
-    <p>Happy Valentine’s Day 💖</p>
+    <h1>💍 YAYYYYY ❤️</h1>
+
+    <div style="
+  width:100%;
+  height:60vh;
+  border-radius:18px;
+  overflow:hidden;
+  margin:15px 0;
+">
+  <img src="valentine.jpg"
+       style="
+         width:100%;
+         height:100%;
+         object-fit:cover;
+         object-position:center;
+       ">
+</div>
+
+    <p style="font-size:16px;">
+      From debugging life to loving you —  
+      I choose <b>YOU</b>, every single time 🥹❤️
+    </p>
+
+    <p style="margin-top:10px;">
+      💖 <i>Tu majhi Valentine ahes… आज, उद्या आणि कायमची</i> 💖
+    </p>
+
+    <p style="font-size:14px; margin-top:10px;">
+      चल लवकर लग्न करुयात 🙈❤️  
+    </p>
   `;
+
+  playMusic();
   startConfetti();
 });
 
+function playMusic() {
+  const audio = document.createElement("audio");
+  audio.src = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3";
+  audio.autoplay = true;
+  audio.loop = true;
+  document.body.appendChild(audio);
+}
+
 function startConfetti() {
-  for(let i=0;i<80;i++){
+  for(let i=0;i<100;i++){
     const c = document.createElement("div");
     c.className = "confetti";
     c.style.left = Math.random() * 100 + "vw";
