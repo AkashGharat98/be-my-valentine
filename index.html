@@ -97,12 +97,7 @@ function moveNo() {
   if (noClicks === 1) noBtn.innerText = "Are you sure? 😶";
   else if (noClicks === 2) noBtn.innerText = "Think again 🤨";
   else if (noClicks === 3) noBtn.innerText = "Really?? 😅";
-  else if (noClicks >= 4) noBtn.innerText = "Okay fine 😭";
-
-  // Grow YES button
-  yesScale += 0.15;
-  yesBtn.style.transform = `scale(${yesScale})`;
-  yesBtn.style.transition = "transform 0.3s ease";
+  else if (noClicks >= 4) noBtn.innerText = "Click Yes na 😭";
 
   // Move NO safely (no overlap)
   const container = document.querySelector(".buttons");
@@ -112,21 +107,21 @@ function moveNo() {
   let x, y, safe = false;
 
   while (!safe) {
-    x = Math.random() * (containerRect.width - 90);
-    y = Math.random() * (containerRect.height - 45);
+    x = Math.random() * (containerRect.width - 80);
+    y = Math.random() * (containerRect.height - 40);
 
     const noLeft = containerRect.left + x;
     const noTop = containerRect.top + y;
 
-    const overlapX = Math.abs(noLeft - yesRect.left) < 110;
-    const overlapY = Math.abs(noTop - yesRect.top) < 60;
+    const overlapX = Math.abs(noLeft - yesRect.left) < 90;
+    const overlapY = Math.abs(noTop - yesRect.top) < 50;
 
     if (!(overlapX && overlapY)) safe = true;
   }
 
   noBtn.style.left = x + "px";
   noBtn.style.top = y + "px";
-  noBtn.style.transform += ` rotate(${Math.random()*20 - 10}deg)`;
+  noBtn.style.transform += ` rotate(${Math.random()*30 - 15}deg)`;
 }
 
 noBtn.addEventListener("click", moveNo);
