@@ -80,7 +80,7 @@ button {
   border-radius: 20px;
   cursor: pointer;
   z-index: 1;
-  margin-top: 60px;
+  margin-top: 10px;
 }
 
 .confetti {
@@ -179,7 +179,7 @@ function moveNo() {
 
   noBtn.style.left = x + "px";
   noBtn.style.top = y + "px";
-  noBtn.style.transform += ` rotate(${Math.random()*30 - 15}deg)`;
+  //noBtn.style.transform += ` rotate(${Math.random()*30 - 15}deg)`;
 }
 
 noBtn.addEventListener("click", moveNo);
@@ -188,8 +188,9 @@ noBtn.addEventListener("touchstart", moveNo);
 
 yesBtn.addEventListener("click", () => {
   card.innerHTML = `
+    <div class="valentine-wrapper">
     <h1>💍 YAYYYYY! I knew you would choose Yes ❤️</h1>
-
+    </div>
     <div style="
   width:100%;
   height:60vh;
