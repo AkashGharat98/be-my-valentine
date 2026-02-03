@@ -41,29 +41,40 @@ h1 {
   margin-bottom: 25px;
 }
 
+.button-area {
+  position: relative;
+  height: 120px; /* 👈 space reserved so no overlap */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+/* YES BUTTON */
 #yes {
   background: #ff4d88;
   color: white;
   border: none;
-  padding: 14px 35px;
+  padding: 14px 36px;
   font-size: 18px;
   border-radius: 30px;
   cursor: pointer;
+  z-index: 2;
   box-shadow: 0 0 18px rgba(255, 77, 136, 0.8);
   transition: transform 0.3s ease;
 }
 
+/* NO BUTTON */
 #no {
+  position: absolute;
+  top: 65px;          /* 👈 pushes it BELOW Yes */
   background: #ffe1ec;
   color: #ff4d88;
   border: none;
   padding: 10px 22px;
   border-radius: 20px;
-  margin-top: 15px;
   cursor: pointer;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  z-index: 1;
 }
 
 #teaseText {
@@ -71,6 +82,20 @@ h1 {
   color: #ff6fa5;
   margin-top: 60px;
   opacity: 0.8;
+}
+
+.buttons {
+  margin-top: 25px;
+  position: relative;
+  height: 100px;
+}
+
+button {
+  padding: 12px 25px;
+  font-size: 16px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
 }
 
 .confetti {
@@ -117,17 +142,19 @@ h1 {
   <div class="card">
     <h1>💖 Dr. Varsha, will you be my Valentine? 💖</h1>
     <p class="subtitle">Choose wisely… 😉</p>
-
+    
+    <div class="button-area">
     <button id="yes">Yes! 💕</button>
     <button id="no">No! 😶</button>
-
+    </div>
+    
     <p id="teaseText">Still trying to click No? That’s adorable 😌</p>
   </div>
 </div>
 
 <script>
-const noBtn = document.getElementById("noBtn");
-const yesBtn = document.getElementById("yesBtn");
+const noBtn = document.getElementById("no");
+const yesBtn = document.getElementById("yes");
 const card = document.getElementById("card");
 
 let noClicks = 0;
