@@ -16,6 +16,24 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
+.yay-text {
+  text-align: center;
+  width: 100%;
+  margin: 20px auto 10px;
+  padding: 0 16px;
+
+  font-size: 28px;
+  font-weight: 600;
+  color: #ff4d88;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+
+  box-sizing: border-box;
+}
+
 .card {
   background: #fff;
   border-radius: 22px;
@@ -190,7 +208,7 @@ noBtn.addEventListener("touchstart", moveNo);
 
 yesBtn.addEventListener("click", () => {
   card.innerHTML = `
-    <div class="valentine-wrapper">
+    <div class="yay-text">
     <h1>💍 YAYYYYY! I knew you would choose Yes ❤️</h1>
     </div>
     <div style="
