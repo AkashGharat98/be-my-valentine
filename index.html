@@ -217,6 +217,10 @@ function moveNo() {
   noBtn.style.top = y + "px";
   noBtn.style.transform = "translateX(0)";
   //noBtn.style.transform += ` rotate(${Math.random()*30 - 15}deg)`;
+
+  yesScale += 0.08;
+  yesBtn.style.transform = `scale(${yesScale})`;
+
 }
 
 noBtn.addEventListener("click", moveNo);
