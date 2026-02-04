@@ -82,6 +82,7 @@ button {
 }
 
 #yes {
+  position: relative; 
   background: #ff4d88;
   color: white;
   border: none;
@@ -95,8 +96,10 @@ button {
 }
 
 #no {
-  position: relative;
-  top: 80px;          
+  position: absolute;        /* 👈 keep absolute */
+  left: 50%;                 /* 👈 center horizontally */
+  top: 70px;                 /* 👈 aligned below Yes */
+  transform: translateX(-50%);      
   background: #ffe1ec;
   color: #ff4d88;
   border: none;
@@ -206,6 +209,7 @@ function moveNo() {
 
   noBtn.style.left = x + "px";
   noBtn.style.top = y + "px";
+  noBtn.style.transform = "translateX(0)";
   //noBtn.style.transform += ` rotate(${Math.random()*30 - 15}deg)`;
 }
 
