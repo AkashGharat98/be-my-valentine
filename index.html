@@ -287,7 +287,14 @@ yesBtn.addEventListener("click", () => {
 
   const slides = document.querySelectorAll(".slideshow img");
   let currentSlide = 0;
+  
+  //const slides = document.querySelectorAll(".slideshow img");
 
+  slides.forEach(img => {
+    img.loading = "eager";      // 👈 force load
+    img.decoding = "sync";      // 👈 Android fix
+  });
+  
   setInterval(() => {
     slides[currentSlide].classList.remove("active");
     currentSlide = (currentSlide + 1) % slides.length;
