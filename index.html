@@ -196,6 +196,20 @@ button {
 </div>
 
 <script>
+
+[
+  "valentine.jpg",
+  "she_said_yes.jpg",
+  "together.jpg",
+  "forehead_kiss.jpg",
+  "heart_give.jpg",
+  "marry_me.jpg"
+].forEach(src => {
+  const img = new Image();
+  img.src = src;
+});
+
+
 const noBtn = document.getElementById("no");
 const yesBtn = document.getElementById("yes");
 const card = document.getElementById("card");
