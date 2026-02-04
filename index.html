@@ -173,7 +173,7 @@ button {
     <button id="no">No 🙃</button>
   </div>
   
-  <p id="teaseText">Still trying to click No? That’s adorable 😌</p>
+  <p id="teaseText">Click Yes 💕 for beautiful surprise 😍</p>
 </div>
 </div>
 
@@ -195,7 +195,8 @@ function moveNo() {
   if (noClicks === 1) noBtn.innerText = "Are you sure? 😶";
   else if (noClicks === 2) noBtn.innerText = "Think again 🤨";
   else if (noClicks === 3) noBtn.innerText = "Really?? 😅";
-  else if (noClicks >= 4) noBtn.innerText = "Click Yes na 😭";
+  else if (noClicks === 4) noBtn.innerText = "Varsha ssly?? 😭";
+  else if (noClicks >= 5) noBtn.innerText = "I'm srs now 😡";
 
   // Move NO safely (no overlap)
   const container = document.querySelector(".buttons");
@@ -222,6 +223,11 @@ function moveNo() {
   noBtn.style.transform = "translateX(0)";
   //noBtn.style.transform += ` rotate(${Math.random()*30 - 15}deg)`;
 
+  const tease = document.getElementById("teaseText");
+  if (noClicks === 1) tease.innerText = "Still trying to click No? That’s adorable 😌";
+  if (noClicks === 2) tease.innerText = "You’re smiling, I know it 😏";
+  if (noClicks >= 3) tease.innerText = "Bas kar bhai! Fakt yes lihla aahe destiny madhe 😎❤️";
+  
   yesScale += 0.08;
   yesBtn.style.transform = `scale(${yesScale})`;
 
