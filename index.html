@@ -303,11 +303,22 @@ yesBtn.addEventListener("click", () => {
   const slides = document.querySelectorAll(".slideshow img");
   let currentSlide = 0;
   
+  //setInterval(() => {
+  //  slides[currentSlide].classList.remove("active");
+   //  currentSlide = (currentSlide + 1) % slides.length;
+   // slides[currentSlide].classList.add("active");
+  //  }, 2500);
+
   setInterval(() => {
-    slides[currentSlide].classList.remove("active");
-    currentSlide = (currentSlide + 1) % slides.length;
-    slides[currentSlide].classList.add("active");
-    }, 2500);
+  slides[currentSlide].classList.remove("active");
+
+  currentSlide = (currentSlide + 1) % slides.length;
+
+  // 👇 force Android repaint
+  slides[currentSlide].offsetHeight;
+
+  slides[currentSlide].classList.add("active");
+}, 2500);
 
   playMusic();
   startConfetti();
