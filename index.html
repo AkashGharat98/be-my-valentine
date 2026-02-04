@@ -148,16 +148,17 @@ button {
   width: 100%;
   height: 100%;
 
-  display: block;          /* 👈 removes thin rectangle */
-  object-fit: cover;       /* 👈 NO empty space */
-  object-position: center;
+  display: block;
+  object-fit: cover;
 
   opacity: 0;
-  transition: opacity 1s ease-in-out;
+  visibility: hidden;          /* 👈 ADD */
+  transition: opacity 0.8s ease-in-out;
 }
 
 .slideshow img.active {
   opacity: 1;
+  visibility: visible;         /* 👈 ADD */
 }
 
 @keyframes fall {
@@ -287,13 +288,6 @@ yesBtn.addEventListener("click", () => {
 
   const slides = document.querySelectorAll(".slideshow img");
   let currentSlide = 0;
-  
-  //const slides = document.querySelectorAll(".slideshow img");
-
-  slides.forEach(img => {
-    img.loading = "eager";      // 👈 force load
-    img.decoding = "sync";      // 👈 Android fix
-  });
   
   setInterval(() => {
     slides[currentSlide].classList.remove("active");
