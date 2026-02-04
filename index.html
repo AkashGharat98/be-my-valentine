@@ -154,6 +154,10 @@ button {
   60%  { transform: scale(1); }
 }
 
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
 </style>
 </head>
 
@@ -279,7 +283,7 @@ yesBtn.addEventListener("click", () => {
   </div>
 </div>
 
-    <p style="font-size:16px;">
+    <p style="font-size:16px; opacity:0; animation: fadeIn 2s forwards 1s;">
       From debugging life to loving you —  
       I choose <b>YOU</b>, every single time 🥹❤️
     </p>
