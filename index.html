@@ -144,21 +144,16 @@ button {
 .slideshow img {
   position: absolute;
   inset: 0;
-
   width: 100%;
   height: 100%;
+  object-fit: contain;
+  object-position: center;
 
-  display: block;
-  object-fit: cover;
-
-  opacity: 0;
-  visibility: hidden;          /* 👈 ADD */
-  transition: opacity 0.8s ease-in-out;
+  display: none;        
 }
 
 .slideshow img.active {
-  opacity: 1;
-  visibility: visible;         /* 👈 ADD */
+  display: block;       
 }
 
 @keyframes fall {
@@ -303,22 +298,22 @@ yesBtn.addEventListener("click", () => {
   const slides = document.querySelectorAll(".slideshow img");
   let currentSlide = 0;
   
-  //setInterval(() => {
-  //  slides[currentSlide].classList.remove("active");
-   //  currentSlide = (currentSlide + 1) % slides.length;
+ // setInterval(() => {
+    //slides[currentSlide].classList.remove("active");
+     //currentSlide = (currentSlide + 1) % slides.length;
    // slides[currentSlide].classList.add("active");
   //  }, 2500);
 
-  setInterval(() => {
+// show first image explicitly
+slides[0].classList.add("active");
+
+setInterval(() => {
   slides[currentSlide].classList.remove("active");
-
   currentSlide = (currentSlide + 1) % slides.length;
-
-  // 👇 force Android repaint
-  slides[currentSlide].offsetHeight;
-
   slides[currentSlide].classList.add("active");
 }, 2500);
+
+  
 
   playMusic();
   startConfetti();
