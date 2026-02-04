@@ -187,6 +187,24 @@ button {
   </div>
   
   <p id="teaseText">Click Yes 💕 for beautiful surprise 😍</p>
+  
+  <div class="slideshow-wrapper" id="slideshowWrapper" style="display:none;">
+  <div class="slideshow">
+    <img src="valentine.jpg" class="active">
+    <img src="she_said_yes.jpg">
+    <img src="together.jpg">
+    <img src="forehead_kiss.jpg">
+    <img src="heart_give.jpg">
+    <img src="marry_me.jpg">
+  </div>
+</div>
+
+<div id="loveText" style="display:none;">
+  <p>From debugging life to loving you — I choose <b>YOU</b> every single time 🥹❤️</p>
+  <p>💖 <i>Tu majhi Valentine ahes… आज, उद्या आणि कायमची</i> 💖</p>
+  <p>चल लवकर लग्न करुयात 🙈❤️</p>
+</div>
+  
 </div>
 </div>
 
@@ -265,35 +283,22 @@ noBtn.addEventListener("click", moveNo);
 //noBtn.addEventListener("touchstart", moveNo);
 
 yesBtn.addEventListener("click", () => {
-  card.innerHTML = `
-    <div class="yay-text">
-    💍 YAYYYYY! I knew you would choose Yes ❤️
-    </div>
-    
-    <div class="slideshow-wrapper">
-    <div class="slideshow">
-    <img src="valentine.jpg" class="active">
-    <img src="she_said_yes.jpg">
-    <img src="together.jpg">
-    <img src="forehead_kiss.jpg">
-    <img src="heart_give.jpg">
-    <img src="marry_me.jpg">
-    </div>
-    </div>
+  document.querySelector(".buttons").style.display = "none";
+  document.getElementById("teaseText").style.display = "none";
 
-    <p style="font-size:16px; opacity:0; animation: fadeIn 2s forwards 1s;">
-      From debugging life to loving you —  
-      I choose <b>YOU</b>, every single time 🥹❤️
-    </p>
+  document.querySelector(".yay-text")?.remove();
 
-    <p style="font-size:16px; opacity:0; animation: fadeIn 2s forwards 1s;">
-      💖 <i>Tu majhi Valentine ahes… आज, उद्या आणि कायमची</i> 💖
-    </p>
+  const title = document.createElement("div");
+  title.className = "yay-text";
+  title.innerHTML = "💍 YAYYYYY! I knew you would choose Yes ❤️";
+  card.prepend(title);
 
-    <p style="font-size:16px; opacity:0; animation: fadeIn 2s forwards 1s;">
-      चल लवकर लग्न करुयात 🙈❤️  
-    </p>
-  `;
+  document.getElementById("slideshowWrapper").style.display = "block";
+  document.getElementById("loveText").style.display = "block";
+
+  startSlideshow();
+  playMusic();
+});
 
   const slides = document.querySelectorAll(".slideshow img");
   let currentSlide = 0;
