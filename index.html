@@ -92,7 +92,6 @@ button {
   cursor: pointer;
   z-index: 2;
   box-shadow: 0 0 18px rgba(255, 77, 136, 0.8);
-  animation: heartbeat 1.0s infinite;
 }
 
 #no {
@@ -234,8 +233,8 @@ function moveNo() {
 }
 
 noBtn.addEventListener("click", moveNo);
-noBtn.addEventListener("mouseover", moveNo);
-noBtn.addEventListener("touchstart", moveNo);
+//noBtn.addEventListener("mouseover", moveNo);
+//noBtn.addEventListener("touchstart", moveNo);
 
 yesBtn.addEventListener("click", () => {
   card.innerHTML = `
