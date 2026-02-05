@@ -315,23 +315,23 @@ function moveNo() {
   else if (noClicks >= 5) noBtn.innerText = "I'm srs now 😡";
 
   // Move NO safely (no overlap)
-  const container = document.querySelector(".card");
+  const container = document.querySelector(".buttons");
   const yesRect = yesBtn.getBoundingClientRect();
   const containerRect = container.getBoundingClientRect();
 
   let x, y, safe = false;
 
   while (!safe) {
-  x = Math.random() * (containerRect.width - noBtn.offsetWidth);
-  y = Math.random() * (containerRect.height - noBtn.offsetHeight - 80) + 60;
+    x = Math.random() * (containerRect.width - 80);
+    y = Math.random() * (containerRect.height - 40);
 
-  const noLeft = containerRect.left + x;
-  const noTop = containerRect.top + y;
+    const noLeft = containerRect.left + x;
+    const noTop = containerRect.top + y;
 
-  const overlapX = Math.abs(noLeft - yesRect.left) < 100;
-  const overlapY = Math.abs(noTop - yesRect.top) < 60;
+    const overlapX = Math.abs(noLeft - yesRect.left) < 90;
+    const overlapY = Math.abs(noTop - yesRect.top) < 50;
 
-  if (!(overlapX && overlapY)) safe = true;
+    if (!(overlapX && overlapY)) safe = true;
   }
 
   noBtn.style.left = x + "px";
