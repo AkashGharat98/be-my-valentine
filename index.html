@@ -33,6 +33,15 @@ body {
 
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
+  
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+.yay-text.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .card {
@@ -296,7 +305,10 @@ yesBtn.addEventListener("click", () => {
 
   // Show YAY text
   document.getElementById("yayText").style.display = "flex";
-
+  
+  const yay = document.getElementById("yayText");
+  requestAnimationFrame(() => yay.classList.add("show"));
+  
   // Show slideshow + love text
   document.getElementById("slideshowWrapper").style.display = "block";
   document.getElementById("loveText").style.display = "block";
