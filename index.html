@@ -123,9 +123,13 @@ button {
 
 .confetti {
   position: fixed;
+  top: 0;              /* 👈 IMPORTANT */
+  left: 0;
   width: 10px;
   height: 10px;
-  animation: fall 3s linear infinite;
+  animation: fall linear infinite;
+  pointer-events: none;
+  z-index: 9999;
 }
 
 .slideshow-wrapper {
@@ -182,8 +186,12 @@ button {
 }
 
 @keyframes fall {
-  0% { transform: translateY(-10px) rotate(0deg); }
-  100% { transform: translateY(100vh) rotate(360deg); }
+  0% {
+    transform: translateY(-50px) rotate(0deg);
+  }
+  100% {
+    transform: translateY(120vh) rotate(360deg);
+  }
 }
 
 @keyframes heartbeat {
@@ -362,12 +370,15 @@ function playMusic() {
 }
 
 function startConfetti() {
-  for(let i=0;i<100;i++){
+  for (let i = 0; i < 100; i++) {
     const c = document.createElement("div");
     c.className = "confetti";
+
     c.style.left = Math.random() * 100 + "vw";
-    c.style.background = `hsl(${Math.random()*360},100%,50%)`;
-    c.style.animationDuration = (Math.random()*2+2) + "s";
+    c.style.top = "0px";                // 👈 force top
+    c.style.background = `hsl(${Math.random() * 360},100%,50%)`;
+    c.style.animationDuration = (Math.random() * 2 + 2) + "s";
+
     document.body.appendChild(c);
   }
 }
