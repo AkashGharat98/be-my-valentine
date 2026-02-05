@@ -165,6 +165,22 @@ button {
   display: block;       
 }
 
+.love-text {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+.love-text.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.love-text p {
+  font-size: 16px;
+  margin: 10px 0;
+}
+
 @keyframes fall {
   0% { transform: translateY(-10px) rotate(0deg); }
   100% { transform: translateY(100vh) rotate(360deg); }
@@ -212,7 +228,7 @@ button {
   </div>
 </div>
 
-<div id="loveText" style="display:none;">
+<div id="loveText" class="love-text" style="display:none;">
   <p>From debugging life to loving you — I choose <b>YOU</b> every single time 🥹❤️</p>
   <p>💖 <i>Tu majhi Valentine ahes… आज, उद्या आणि कायमची</i> 💖</p>
   <p>चल लवकर लग्न करुयात 🙈❤️</p>
@@ -311,8 +327,13 @@ yesBtn.addEventListener("click", () => {
   
   // Show slideshow + love text
   document.getElementById("slideshowWrapper").style.display = "block";
-  document.getElementById("loveText").style.display = "block";
-
+  document.getElementById("loveText").style.display = "flex";
+  
+  const love = document.getElementById("loveText");
+  setTimeout(() => {
+  love.classList.add("show");
+  }, 600);
+  
   startSlideshow();
   playMusic();
 });
