@@ -185,12 +185,46 @@ button {
   margin: 10px 0;
 }
 
+.confetti-heart {
+  position: fixed;
+  top: -20px;
+  width: 12px;
+  height: 12px;
+  background-color: red;
+  transform: rotate(45deg);
+  animation-name: fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.confetti-heart::before,
+.confetti-heart::after {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background-color: inherit;
+  border-radius: 50%;
+}
+
+.confetti-heart::before {
+  top: -6px;
+  left: 0;
+}
+
+.confetti-heart::after {
+  left: -6px;
+  top: 0;
+}
+
 @keyframes fall {
-  0% {
-    transform: translateY(-50px) rotate(0deg);
+  from {
+    transform: translateY(0) rotate(45deg);
   }
-  100% {
-    transform: translateY(120vh) rotate(360deg);
+  to {
+    transform: translateY(120vh) rotate(405deg);
   }
 }
 
@@ -370,19 +404,37 @@ function playMusic() {
   document.body.appendChild(audio);
 }
 
+//function startConfetti() {
+  //for (let i = 0; i < 100; i++) {
+   // const c = document.createElement("div");
+   // c.className = "confetti";
+
+   // c.style.left = Math.random() * 100 + "vw";
+  //  c.style.top = "0px";                // 👈 force top
+  //  c.style.background = `hsl(${Math.random() * 360},100%,50%)`;
+  //  c.style.animationDuration = (Math.random() * 2 + 2) + "s";
+
+  //  document.body.appendChild(c);
+ // }
+//} 
+
 function startConfetti() {
-  for (let i = 0; i < 100; i++) {
-    const c = document.createElement("div");
-    c.className = "confetti";
+  for (let i = 0; i < 40; i++) {
+    const heart = document.createElement("div");
+    heart.className = "confetti-heart";
 
-    c.style.left = Math.random() * 100 + "vw";
-    c.style.top = "0px";                // 👈 force top
-    c.style.background = `hsl(${Math.random() * 360},100%,50%)`;
-    c.style.animationDuration = (Math.random() * 2 + 2) + "s";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.backgroundColor =
+      `hsl(${Math.random() * 360}, 90%, 65%)`;
 
-    document.body.appendChild(c);
+    heart.style.animationDuration = (Math.random() * 4 + 5) + "s";
+    heart.style.animationDelay = Math.random() * 2 + "s";
+    heart.style.opacity = Math.random() * 0.5 + 0.5;
+
+    document.body.appendChild(heart);
   }
 }
+
 </script>
 
 </body>
